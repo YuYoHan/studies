@@ -2,9 +2,11 @@ package org.example.oauth2.config;
 
 import lombok.RequiredArgsConstructor;
 import org.example.oauth2.config.oauth2.CustomClientRegistrationRepo;
+import org.example.oauth2.config.oauth2.CustomOAuth2AuthorizationService;
 import org.example.oauth2.service.CustomOAuth2UserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
@@ -15,6 +17,8 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
     private final CustomOAuth2UserService oAuth2UserService;
     private final CustomClientRegistrationRepo customClientRegistrationRepo;
+    private final JdbcTemplate jdbcTemplate;
+    private final CustomOAuth2AuthorizationService customOAuth2AuthorizationService;
 
 
     @Bean
@@ -26,6 +30,7 @@ public class SecurityConfig {
         http.oauth2Login(oauth2 -> oauth2
                 .loginPage("/login")
                 .clientRegistrationRepository(customClientRegistrationRepo.clientRegistrationRepository())
+                .authorizedClientService(customOAuth2AuthorizationService.oAuth2AuthorizedClientService(jdbcTemplate, customClientRegistrationRepo.clientRegistrationRepository()))
                 .userInfoEndpoint((userInfoEndpointConfig -> userInfoEndpointConfig
                         .userService(oAuth2UserService))));
 
