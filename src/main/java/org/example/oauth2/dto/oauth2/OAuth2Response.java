@@ -1,4 +1,4 @@
-package org.example.oauth2.dto;
+package org.example.oauth2.dto.oauth2;
 
 public interface OAuth2Response {
     // 제공자 (naver, google)

@@ -3,7 +3,7 @@ package org.example.oauth2.config;
 import lombok.RequiredArgsConstructor;
 import org.example.oauth2.config.oauth2.CustomClientRegistrationRepo;
 import org.example.oauth2.config.oauth2.CustomOAuth2AuthorizationService;
-import org.example.oauth2.service.CustomOAuth2UserService;
+import org.example.oauth2.service.oauth2.CustomOAuth2UserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;

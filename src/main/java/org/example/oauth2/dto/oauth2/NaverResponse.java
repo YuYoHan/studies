@@ -1,22 +1,23 @@
-package org.example.oauth2.dto;
+package org.example.oauth2.dto.oauth2;
 
 import java.util.Map;
 
-public class GoogleResponse implements OAuth2Response{
+public class NaverResponse implements OAuth2Response{
     private final Map<String, Object> attributes;
 
-    public GoogleResponse(Map<String, Object> attributes) {
-        this.attributes = attributes;
+    public NaverResponse(Map<String, Object> attribute) {
+        this.attributes = (Map<String, Object>) attribute.get("response");
     }
+
 
     @Override
     public String getProvider() {
-        return "google";
+        return "naver";
     }
 
     @Override
     public String getProviderId() {
-        return attributes.get("sub").toString();
+        return attributes.get("id").toString();
     }
 
     @Override
