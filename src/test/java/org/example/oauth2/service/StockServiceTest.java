@@ -2,6 +2,7 @@ package org.example.oauth2.service;
 
 import org.example.oauth2.entity.Stock;
 import org.example.oauth2.repository.StockRepository;
+import org.example.oauth2.service.lock.PessimisticLockStockService;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -18,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class StockServiceTest {
     @Autowired
-    private StockService stockService;
+    private PessimisticLockStockService stockService;
 
     @Autowired
     private StockRepository stockRepository;
