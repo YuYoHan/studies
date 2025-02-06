@@ -1,6 +1,6 @@
 package org.example.oauth2.service;
 
-import org.example.oauth2.entity.Stock;
+import org.example.oauth2.entity.StockEntity;
 import org.example.oauth2.repository.StockRepository;
 import org.example.oauth2.service.lock.PessimisticLockStockService;
 import org.junit.jupiter.api.AfterEach;
@@ -17,7 +17,7 @@ import java.util.concurrent.Executors;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-class StockServiceTest {
+class StockEntityServiceTest {
     @Autowired
     private PessimisticLockStockService stockService;
 
@@ -27,7 +27,7 @@ class StockServiceTest {
     @BeforeEach
     void before() {
         stockRepository.save(
-                new Stock()
+                new StockEntity()
                         .builder()
                         .productId(1L)
                         .quantity(100L)
@@ -42,9 +42,9 @@ class StockServiceTest {
     @Test
     void 재고감소() {
         stockService.decrease(1L, 1L);
-        Stock stock = stockRepository.findById(1L).orElseThrow();
+        StockEntity stockEntity = stockRepository.findById(1L).orElseThrow();
 
-        Assertions.assertEquals(99, stock.getQuantity());
+        Assertions.assertEquals(99, stockEntity.getQuantity());
     }
 
     @Test
@@ -64,8 +64,8 @@ class StockServiceTest {
         }
         latch.await();
 
-        Stock stock = stockRepository.findById(1L).orElseThrow();
+        StockEntity stockEntity = stockRepository.findById(1L).orElseThrow();
         // 100 - (1 * 100) = 0
-        assertEquals(0, stock.getQuantity());
+        assertEquals(0, stockEntity.getQuantity());
     }
 }

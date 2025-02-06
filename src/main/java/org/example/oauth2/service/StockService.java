@@ -1,7 +1,7 @@
 package org.example.oauth2.service;
 
 import lombok.RequiredArgsConstructor;
-import org.example.oauth2.entity.Stock;
+import org.example.oauth2.entity.StockEntity;
 import org.example.oauth2.repository.StockRepository;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +15,8 @@ public class StockService {
     public synchronized void decrease(Long id, Long quantity) {
         // stock 조회
         // 재고를 감소시킨 후 갱신된 값을 저장
-        Stock stock = stockRepository.findById(id).orElseThrow();
-        stock.decrementQuantity(quantity);
-        stockRepository.save(stock);
+        StockEntity stockEntity = stockRepository.findById(id).orElseThrow();
+        stockEntity.decrementQuantity(quantity);
+        stockRepository.save(stockEntity);
     }
 }
