@@ -1,7 +1,14 @@
 spring:
-  application:
-    name: OAuth2
-
+  profiles:
+    group:
+      local:
+        - oauth
+    active: local
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true
   datasource:
     url: jdbc:h2:mem:testdb
     driver-class-name: org.h2.Driver
