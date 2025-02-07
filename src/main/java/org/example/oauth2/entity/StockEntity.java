@@ -3,6 +3,7 @@ package org.example.oauth2.entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.Version;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -19,6 +20,9 @@ public class StockEntity {
 
     private Long productId;
     private Long quantity;
+
+    @Version
+    private Long version;
 
     public void decrementQuantity(Long amount) {
         if(this.quantity - amount < 0) {
