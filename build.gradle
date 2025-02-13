@@ -38,6 +38,9 @@ dependencies {
 	testImplementation 'org.springframework.security:spring-security-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	implementation 'org.springframework.security:spring-security-oauth2-core:5.8.0'
+	// redisson
+	// Redisson은 Redis의 자바 클라이언트 라이브러리로, Redis의 기능을 자바 애플리케이션에서 쉽게 사용할 수 있도록 도와줍니다.
+	implementation 'org.redisson:redisson:3.33.0'
 }
 
 tasks.named('test') {

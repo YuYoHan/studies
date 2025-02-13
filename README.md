@@ -12,3 +12,4 @@ Artillery는 **부하 테스트(Load Testing)**와 **성능 테스트(Performanc
 Artillery는 사용하기 쉽고 확장 가능하며, JavaScript를 기반으로 한 설정 및 스크립팅을 통해 복잡한 시나리오를 작성할 수 있도록 설계되었습니다.
 
 ---
+
