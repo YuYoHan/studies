@@ -2,6 +2,8 @@
 - OAuth2.0
 - Artillery
 - Spring Batch
+- redis
+- kafka
 
 
 ---
