@@ -1,0 +1,38 @@
+services:
+  image: confluentinc/cp-zookeeper:latest
+  container_name: zookeeper
+  restart: always
+  environment:
+    ZOOKEEPER_CLIENT_PORT: 2181
+    ZOOKEEPER_TICK_TIME: 2000
+  ports:
+      - "2181:2181"
+
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    container_name: kafka
+    restart: always
+    depends_on:
+      - zookeeper
+    ports:
+        - "9092:9092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: "zookeeper:2181"
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+  redis:
+    image: redis:latest
+    container_name: redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data  # redis 데이터를 볼륨에 저장
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes # 비밀번호 없이 접속 허용
+    command: redis-server --appendonly yes  # 데이터 영구 저장 활성화
+
+volumes:
+  redis_data:
+    driver: local  # 로컬 볼륨 사용
