@@ -228,6 +228,19 @@ hgetall author:info:1
 # 특정 요소값 수정
 hset author:info:1 name kim
 
-# 
-
+```
+# kafka
+분산 이벤트 스트리밍 플랫폼 <br/>
+이벤트 스트리밍 소스에서 목적지까지 이벤트를 실시간으로 스트리밍하는 것 <br/>
+## 토픽 생성
+```shell
+docker exec -it kafka kafka-topics.sh --bootstrap-server localhost:9092 --create --topic testTopic
+```
+## 프로듀서 실행
+```shell
+docker exec -it kafka kafka-console-producer.sh --topic testTopic --broker-list 0.0.0.0:9092
+```
+### consumer 실행
+```shell
+docker exec -it kafka kafka-console-consumer.sh --topic testTopic --bootstrap-server localhost:9092
 ```
