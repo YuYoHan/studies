@@ -44,3 +44,4 @@ jwt:
 logging:
   level:
     org.hibernate.sql: debug
+

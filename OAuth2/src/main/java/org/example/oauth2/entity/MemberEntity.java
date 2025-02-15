@@ -16,11 +16,9 @@ public class MemberEntity {
     private Long id;
 
     private String userName;
-    private String email;
+    private String password;
     private String role;
+    private String nickName;
+    private String phone;
 
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 }
