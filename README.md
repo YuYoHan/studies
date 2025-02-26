@@ -3,7 +3,8 @@
 - Artillery
 - Spring Batch
 - redis
-- kafka
+- kafka pub/sub
+- 디자인패턴
 
 
 ---
