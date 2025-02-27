@@ -2,6 +2,7 @@ package org.example.oauth2.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.example.oauth2.dto.MemberDTO;
 import org.example.oauth2.service.MemberService;
 import org.springframework.stereotype.Controller;
@@ -11,8 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@Log4j2
 @RequiredArgsConstructor
+@Slf4j
 public class JoinController {
     private final MemberService memberService;
 
