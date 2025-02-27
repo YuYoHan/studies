@@ -44,4 +44,5 @@ jwt:
 logging:
   level:
     org.hibernate.sql: debug
-
+server:
+  port: 8082
