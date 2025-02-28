@@ -4,12 +4,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class HTMLBuilder extends Builder{
+// HTML 파일을 이용하여 문서를 만드는 클래스
+public class HTMLBuilder implements Builder{
     private String filename;
     private PrintWriter writer;
 
     @Override
-    void makeTitle(String title) {
+    public void makeTitle(String title) {
         filename = title + ".html";
         try{
             writer = new PrintWriter(new FileWriter(filename));
@@ -21,12 +22,12 @@ public class HTMLBuilder extends Builder{
     }
 
     @Override
-    void makeString(String string) {
+    public void makeString(String string) {
         writer.println("<p>" + string + "</p>");
     }
 
     @Override
-    void makeItems(String[] items) {
+    public void makeItems(String[] items) {
         writer.println("<ul>");
         for (int i = 0; i < items.length; i++) {
             writer.println("<li>"+items[i]+"</li>");
@@ -35,7 +36,7 @@ public class HTMLBuilder extends Builder{
     }
 
     @Override
-    void close() {
+    public void close() {
         writer.println("</body></html>");
         writer.close();
     }

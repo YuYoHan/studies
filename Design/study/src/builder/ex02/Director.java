@@ -11,14 +11,9 @@ public class Director {
     // constructor 는 메소드 문서 구축 메소드로 Builder에서 선언되어 있는 메소드만 사용합니다.
     // 이 메소드를 호출하면 문서가 생성됩니다.
     public void construct() {
-        builder.makeTitle("Greeting");
-        builder.makeString("아침과 낮에");
-        builder.makeItems(new String[]{"좋은 아침입니다.", "안녕하세요"});
-        builder.makeItems(new String[]{
-                "안녕하세요",
-                "안녕히 주무세요",
-                "안녕히 계세요",
-        });
+        builder.makeTitle("제목");
+        builder.makeString("에스파");
+        builder.makeItems(new String[]{"카리나", "윈터"});
         builder.close();
     }
 }

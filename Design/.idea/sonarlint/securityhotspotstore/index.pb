@@ -35,3 +35,5 @@ W
 'study/src/builder/ex02/HTMLBuilder.java,7\9\79627d51f92a8e72df9497b69cd7daccee93cfdf
 P
  study/src/builder/ex02/Main.java,b\0\b0eb4d313e5ee3d4a9c22639a4e65fc9ca253254
+W
+'study/src/Adapter/ex01/AdapterImpl.java,1\5\15903d1864676e791aa39042aba1587f9b6e1a96

@@ -1,23 +1,24 @@
 package builder.ex02;
 
-public class TextBuilder extends Builder{
+// 텍스트(일반 문자열)을 이용하여 문서를 만드는 클래스
+public class TextBuilder implements Builder{
     private StringBuffer buffer = new StringBuffer();
 
     @Override
-    void makeTitle(String title) {
+    public void makeTitle(String title) {
         buffer.append("==============\n");
         buffer.append("⎾"+ title + "⏌");
         buffer.append("\n");
     }
 
     @Override
-    void makeString(String string) {
+    public void makeString(String string) {
         buffer.append("◆" + string + "\n");
         buffer.append("\n");
     }
 
     @Override
-    void makeItems(String[] items) {
+    public void makeItems(String[] items) {
         for (int i = 0; i < items.length; i++) {
             buffer.append(" •" + items[i] + "\n");
             buffer.append("\n");
@@ -25,7 +26,7 @@ public class TextBuilder extends Builder{
     }
 
     @Override
-    void close() {
+    public void close() {
         buffer.append("====================\n");
     }
 
